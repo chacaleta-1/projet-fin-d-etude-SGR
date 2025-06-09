@@ -1,0 +1,386 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #f4f6f9;
+  }
+  
+  .sidebar {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    background-color: #1e1e2f;
+    color: white;
+    padding: 20px;
+  }
+  
+  .profile {
+    text-align: center;
+  }
+  
+  .profile img {
+    width: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+  }
+  
+  .profile h3 {
+    font-size: 16px;
+  }
+  
+  .signout {
+    margin-top: 10px;
+    padding: 6px 10px;
+    background-color: #ff4d4f;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .sidebar ul {
+    list-style: none;
+    margin-top: 30px;
+    padding-left: 0;
+  }
+  
+  .sidebar ul li {
+    margin: 20px 0;
+  }
+  
+  .sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .sidebar ul li a:hover {
+    color: #00c6ff;
+  }
+  
+  .main {
+    flex-grow: 1;
+    padding: 30px;
+    margin-left: 240px;
+    background-color: #f4f6f9; /* Light background for main content */
+    color: #1a1a2e; /* Dark text for main content */
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+  }
+  
+  .header h2 {
+    font-size: 24px;
+    margin-bottom: 5px;
+    color: #0056b3; /* Accent color for header titles */
+  }
+  
+  .header p {
+    margin: 5px 0 0 0;
+    color: #333; /* Slightly dimmer text */
+  }
+  
+  .reclamations-section,
+  .settings-form {
+    background: #f4f6f9; /* Light background for sections/forms */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+    background: white;
+    border-collapse: collapse;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.05);
+  }
+  
+  th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+  
+  th {
+    background-color: #f2f4f8;
+  }
+  
+  .status {
+    padding: 4px 8px;
+    border-radius: 4px;
+    color: white;
+    font-size: 12px;
+  }
+  
+  .pending {
+    background-color: orange;
+  }
+  
+  .view-btn {
+    padding: 5px 10px;
+    background: #007bff;
+    border: none;
+    color: white;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .view-btn:hover {
+    background: #0056b3;
+  }
+  
+  .status.open {
+    color: #dc3545; /* Red for open */
+    font-weight: bold;
+  }
+  .status.pending {
+    color: #ffc107; /* Yellow for pending */
+    font-weight: bold;
+  }
+  .status.closed {
+    color: #28a745; /* Green for closed */
+    font-weight: bold;
+  }
+  .status.resolved {
+    color: #007bff; /* Blue or another color for resolved, adjust as needed */
+    font-weight: bold;
+  }
+  
+  .search-box {
+    margin: 20px 0;
+    padding: 10px;
+    width: 300px;
+    border: 1px solid #ddd; /* Subtle border */
+    border-radius: 5px;
+    background-color: #f4f6f9; /* Match body background */
+    color: #1a1a2e; /* Dark text */
+  }
+  
+  .search-box::placeholder {
+    color: #999; /* Dimmer placeholder text */
+  }
+  
+  .back-to-dashboard {
+    display: inline-block;
+    margin-left: 20px;
+    color: #0056b3; /* Accent color */
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+  }
+  
+  .back-to-dashboard:hover {
+    color: #003d80; /* Darker accent on hover */
+  }
+  
+  /* Styles for messages */
+  .message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  
+  .success {
+    background-color: #d4edda; /* Light green background */
+    color: #155724; /* Dark green text */
+    border: 1px solid #c3e6cb;
+  }
+  
+  .error {
+    background-color: #f8d7da; /* Light red background */
+    color: #721c24; /* Dark red text */
+    border: 1px solid #f5c6cb;
+  }
+  
+  .section-title {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+    color: #0056b3; /* Accent color */
+  }
+  
+  /* Styles moved from admin_dashboard.php */
+  .status.open { color: #ff4444; }
+  .status.pending { color: #ffcc00; }
+  .status.closed { color: #00cc99; }
+  
+  .notification-bell {
+    position: relative;
+    cursor: pointer;
+    padding: 10px;
+  }
+  
+  .notification-bell .las {
+    font-size: 24px;
+    color: #1a1a2e; /* Adjusted for light theme */
+  }
+  
+  .notification-count {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #ff4444;
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    display: none;
+  }
+  
+  .notification-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #f4f6f9; /* Match sidebar background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    border-radius: 5px;
+    width: 300px;
+    display: none;
+    z-index: 1000;
+    color: #1a1a2e; /* Dark text */
+  }
+  
+  .notification-header {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .notification-header h4 {
+    margin: 0;
+    color: #0056b3; /* Accent color */
+  }
+  
+  .notification-header button {
+    background: none;
+    border: none;
+    color: #0056b3; /* Accent color */
+    cursor: pointer;
+  }
+  
+  .notification-list {
+    max-height: 300px;
+    overflow-y: auto;
+  }
+  
+  .notification-item {
+    padding: 10px;
+    border-bottom: 1px solid #ddd; /* Subtle border */
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+  
+  .notification-item:hover {
+    background: #f2f2f2; /* Hover effect */
+  }
+  
+  .notification-item.unread {
+    background: #e6e6e6; /* Slightly different background for unread */
+  }
+  
+  .notification-item .time {
+    font-size: 12px;
+    color: #999; /* Slightly dimmer text */
+  }
+  
+  /* Styles moved from admin_settings.php */
+  .settings-form {
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    max-width: 600px;
+    margin: 20px auto;
+  }
+  .form-group {
+    margin-bottom: 20px;
+  }
+  .form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #1a1a2e; /* Dark text for labels */
+  }
+  .form-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #4a4a6a; /* Subtle border */
+    border-radius: 5px;
+    background-color: #1a1a2e; /* Match main background */
+    color: #e0e0e0; /* Light text for input */
+  }
+  .submit-btn {
+    background-color: #00c6ff; /* Accent color */
+    color: #1a1a2e; /* Dark text */
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  .submit-btn:hover {
+    background-color: #00b3e6; /* Darker accent on hover */
+    box-shadow: 0 0 8px rgba(0, 198, 255, 0.5); /* Glow effect */
+  }
+  .message {
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+  }
+  .success {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+  }
+  .error {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+  }
+  .section-title {
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  /* Dark mode for form groups containing password inputs */
+  .settings-form .form-group.password-group {
+      background-color: #2a2a4a; /* Dark background */
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 20px; /* Maintain spacing */
+      border: 1px solid #4a4a6a; /* Subtle dark border */
+  }
+
+  .settings-form .form-group.password-group label {
+      color: #00c6ff; /* Accent color for labels */
+  }
+
+  .settings-form .form-group.password-group input[type="password"] {
+      background-color: #1a1a2e; /* Slightly darker background for input */
+      color: #e0e0e0; /* Light text */
+      border: 1px solid #4a4a6a; /* Subtle dark border */
+  }
+
+  .settings-form .form-group.password-group input[type="password"]::placeholder {
+      color: #b0b0b0; /* Dimmer placeholder text */
+  }
+  
