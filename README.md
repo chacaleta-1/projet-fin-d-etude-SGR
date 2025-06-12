@@ -3,7 +3,7 @@ Projet de fin d'étude : Développement d’une application web de gestion des r
 pour que le projet fonction vous devez entrez cet script sql dans votre database pour ajouter les tables essentielles
 
 -- Création de la base de données
-CREATE DATABASE IF NOT EXISTS complaint_management_system;
+CREATE DATABASE IF NOT EXISTS user_db;
 USE complaint_management_system;
 
 -- Table des utilisateurs
